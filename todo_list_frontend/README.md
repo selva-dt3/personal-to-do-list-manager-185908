@@ -1,82 +1,68 @@
-# Lightweight React Template for KAVIA
+# To-Do List Frontend (React)
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+A lightweight React app for managing personal to-do tasks with a modern "Ocean Professional" theme.
 
 ## Features
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- Lightweight: vanilla CSS and React
+- Modern UI: clean, responsive UI
+- Simple integration: configurable backend base URL
 
-## Getting Started
+## Prerequisites
+
+- Node.js 16+ and npm
+- Backend service running (Flask) on http://localhost:3001 (default)
+
+## Environment
+
+Copy .env.example to .env and adjust as needed:
+
+```
+cp .env.example .env
+```
+
+Edit .env to point to your backend:
+
+```
+REACT_APP_API_BASE=http://localhost:3001
+```
+
+The app defaults to http://localhost:3001 when REACT_APP_API_BASE is not set.
+
+## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### npm start
+Runs the app in development mode.
+- URL: http://localhost:3000
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### npm test
+Launches the test runner.
 
-### `npm test`
+### npm run build
+Builds the app for production to the build folder.
 
-Launches the test runner in interactive watch mode.
+## Backend API Integration
 
-### `npm run build`
+This frontend expects the following backend routes:
+- GET /api/tasks
+- POST /api/tasks
+- PATCH /api/tasks/{id}
+- DELETE /api/tasks/{id}
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The base URL is taken from REACT_APP_API_BASE. For example, GET http://localhost:3001/api/tasks.
+
+OpenAPI docs (served by backend):
+- Swagger UI: http://localhost:3001/docs
+- OpenAPI JSON: http://localhost:3001/openapi.json
+
+## CORS
+
+Ensure the backend allows CORS for the frontend origin (http://localhost:3000 in development). If you restrict origins, include http://localhost:3000.
 
 ## Customization
 
-### Colors
+Colors and component styles are in src/App.css.
 
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
-
-### Components
-
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
-
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
-
-## Learn More
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To learn React, see the React documentation: https://reactjs.org/
